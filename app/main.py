@@ -37,7 +37,7 @@ def shop_trip() -> None:
             total_cost = trip_cost + product_cost
 
             print(f"{customer.name}'s trip to "
-                  f"the {shop.name} costs {total_cost}")
+                  f"the {shop.name} costs {round(total_cost, 2)}")
             if total_cost < best_cost and total_cost <= customer.money:
                 best_cost = total_cost
                 best_shop = shop
@@ -62,8 +62,9 @@ def shop_trip() -> None:
                 fuel_price,
                 customer.car.fuel_consumption
             )
+            original_location = customer.location
             customer.money -= trip_home_cost
-            customer.move_to(customer.location)
+            customer.move_to(original_location)
 
             print(f"{customer.name} rides home")
             print(f"{customer.name} now has {customer.money} dollars\n")
