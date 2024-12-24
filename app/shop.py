@@ -23,8 +23,9 @@ class Shop:
     def purchase(self, customer_name: str, product_cart: dict) -> tuple:
         total_cost = 0
         specific_time = datetime(2021, 4, 1, 12, 33, 41)
+        new_time = specific_time.strftime("%m/%d/%Y %H:%M:%S")
         receipt = [
-            f"Date: {specific_time.strftime("%m/%d/%Y %H:%M:%S")}",
+            f"Date: {new_time}",
             f"Thanks, {customer_name}, for your purchase!",
             "You have bought:"
         ]
